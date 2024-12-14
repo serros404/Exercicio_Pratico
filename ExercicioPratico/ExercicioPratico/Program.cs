@@ -5,7 +5,6 @@ Console.WriteLine($"{chevrolet.Modelo} {chevrolet.Montadora} {chevrolet.Marca}" 
 $" {chevrolet.Ano} {chevrolet.Potencia} CV");
 
 
-
 Carro ford = new("SUV", "Ford", "EcoSport", 2018, 120);
 ford.Acelerar(ford.Marca);
 
@@ -33,9 +32,21 @@ public class Carro
         this.Potencia = Potencia;
     }
 
+
+    public Carro(string? modelo, string? montadora)
+    {
+        Modelo = modelo;
+        Montadora = montadora;
+    }
+
     public void Acelerar(string marca)
     {
         Console.WriteLine("\nAcelerando" + marca);
+    }
+
+    public double VelocidadeMaxima(int potencia)
+    {
+        return potencia * 1.75;
     }
 }
 
