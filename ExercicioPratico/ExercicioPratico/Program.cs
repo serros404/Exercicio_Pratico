@@ -1,4 +1,6 @@
-﻿Carro chevrolet = new("Sedan", "Chevrolet", "Onix", 2016, 110);
+﻿using System.Net.Http.Headers;
+
+Carro chevrolet = new("Sedan", "Chevrolet", "Onix", 2016, 110);
 chevrolet.Acelerar(chevrolet.Marca);
 
 
@@ -31,6 +33,12 @@ Console.WriteLine("\nInformando o parâmetro opcional Ano");
 ford.ExibirInfo(Modelo: ford.Modelo, Montadora: ford.Montadora,
 Marca: ford.Marca, Potencia: ford.Potencia, Ano: ford.Ano);
 
+Console.WriteLine("Chamando o método estático ObterValorIPVA : ");
+
+Carro.ObterValorIpva();
+
+Console.WriteLine("Valor do campo ValorIpva : " + Carro.ValorIpva + "%");
+
 Console.ReadKey();
 
 public class Carro
@@ -40,6 +48,7 @@ public class Carro
     public string? Marca;
     public int Ano;
     public int Potencia;
+    public static double ValorIpva;
 
     public Carro(string? Modelo, string? Montadora, string? Marca, int Ano, int Potencia)
     {
@@ -92,6 +101,10 @@ public class Carro
         Console.WriteLine(Ano);
     }
 
+    public static double ObterValorIpva()
+    {
+        return ValorIpva = 4;
+    }
 }
 
 
