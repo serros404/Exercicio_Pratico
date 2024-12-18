@@ -9,6 +9,9 @@ var novaPotenciaChevrolet = chevrolet.AumentarPotencia(chevrolet.Potencia);
 Console.Write("-> " + novaPotenciaChevrolet);
 Console.WriteLine("\nO valor do campo Potencia não foi alterado : " + chevrolet.Potencia);
 
+double novaPotencia = chevrolet.AumentarPotenciaVelocidade(chevrolet.Potencia, out double velocidade);
+Console.WriteLine("-Nova Potencia : " + novaPotencia);
+Console.WriteLine("-Nova Velocidade Máxima : " + velocidade);
 
 Carro ford = new("SUV", "Ford", "EcoSport", 2018, 120);
 ford.Acelerar(ford.Marca);
@@ -65,6 +68,12 @@ public class Carro
     public int AumentarPotencia(ref int potencia)
     {
         return potencia += 5;
+    }
+    public int AumentarPotenciaVelocidade(int potencia, out double velocidade)
+    {
+        potencia += 7;
+        velocidade = potencia * 1.75;
+        return potencia;
     }
 
 }
