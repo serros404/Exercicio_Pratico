@@ -22,7 +22,14 @@ var novaPotenciaFord = ford.AumentarPotencia(ref ford.Potencia);
 Console.Write("-> " + novaPotenciaFord);
 Console.WriteLine("\nO valor do campo Potencia foi alterado : " + ford.Potencia);
 
-Console.ReadKey();
+Console.WriteLine("\nUsando argumentos nomeados e parâmetros opcionais \n");
+Console.WriteLine("Sem informar o parâmetro opcional Ano");
+ford.ExibirInfo(Modelo: ford.Modelo, Montadora: ford.Montadora,
+Marca: ford.Marca, Potencia: ford.Potencia);
+
+Console.WriteLine("\nInformando o parâmetro opcional Ano");
+ford.ExibirInfo(Modelo: ford.Modelo, Montadora: ford.Montadora,
+Marca: ford.Marca, Potencia: ford.Potencia, Ano: ford.Ano);
 
 Console.ReadKey();
 
@@ -74,6 +81,15 @@ public class Carro
         potencia += 7;
         velocidade = potencia * 1.75;
         return potencia;
+    }
+
+    public void ExibirInfo(string? Modelo, string? Montadora, string? Marca, int Potencia, int Ano = 2022)
+    {
+        Console.WriteLine(Modelo);
+        Console.WriteLine(Montadora);
+        Console.WriteLine(Marca);
+        Console.WriteLine(Potencia);
+        Console.WriteLine(Ano);
     }
 
 }
