@@ -46,7 +46,20 @@ public class Carro
     public string? Modelo;
     public string? Montadora;
     public string? Marca;
-    public int Ano;
+
+    private int ano;
+    public int Ano 
+    {
+        get {  return ano; }
+        set {
+            if (value < 2000)
+                ano = 2000;
+            else if (value > 2022)
+                ano = 2022;
+            else
+                ano = value;
+        }
+    }
     public int Potencia;
     public static double ValorIpva;
 
