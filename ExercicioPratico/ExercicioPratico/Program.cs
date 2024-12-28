@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Headers;
+using System.Net.WebSockets;
+using System.Runtime.CompilerServices;
 
 Carro chevrolet = new("Sedan", "Chevrolet", "Onix", 2016, 110);
 chevrolet.Acelerar(chevrolet.Marca);
@@ -39,6 +41,13 @@ Carro.ObterValorIpva();
 
 Console.WriteLine("Valor do campo ValorIpva : " + Carro.ValorIpva + "%");
 
+//struct
+Cliente cliente = new("Juan", "juan@email.com", 19);
+Cliente.ExibirInfo(email: cliente.Email, nome: cliente.Nome, idade: cliente.Idade);
+Console.WriteLine("\nExibindo informação sem informar a idade");
+Cliente.ExibirInfo(email: cliente.Email, nome: cliente.Nome);
+
+
 Console.ReadKey();
 
 public class Carro
@@ -48,10 +57,11 @@ public class Carro
     public string? Marca;
 
     private int ano;
-    public int Ano 
+    public int Ano
     {
-        get {  return ano; }
-        set {
+        get { return ano; }
+        set
+        {
             if (value < 2000)
                 ano = 2000;
             else if (value > 2022)
@@ -118,6 +128,41 @@ public class Carro
     {
         return ValorIpva = 4;
     }
+
 }
 
+public struct Cliente
+{
+    public string Nome;
+    public string Email;
 
+    private int idade;
+    public int Idade
+    {
+        get { return idade; }
+        set
+        {
+            if (value < 18) // Corrigido para verificar o valor de entrada
+            {
+                idade = 18; // Limita a idade a 18
+            }
+            else
+            {
+                idade = value; // Caso contrário, atribui o valor normalmente
+            }
+        }
+    }
+
+    public Cliente(string Nome, string Email, int Idade)
+    {
+        this.Nome = Nome;
+        this.Email = Email;
+        this.Idade = Idade;
+    }
+
+    public static void ExibirInfo(string nome, string email, int idade = 18)
+    {
+        Console.WriteLine($"Nome: {nome} \nEmail: {email} \nIdade: {idade}");
+
+    }
+}
