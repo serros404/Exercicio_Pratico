@@ -54,7 +54,6 @@ Marca: ford.Marca, Potencia: ford.Potencia, Ano: ford.Ano);
 
 Console.WriteLine("Chamando o método estático ObterValorIPVA : ");
 
-Carro.ObterValorIpva();
 
 Console.WriteLine("Valor do campo ValorIpva : " + Carro.ValorIpva + "%");
 
@@ -148,10 +147,9 @@ public class Carro
         Console.WriteLine(Ano);
         Console.WriteLine((Cores)Cor);
     }
-
-    public static double ObterValorIpva()
+    static Carro()
     {
-        return ValorIpva = 4;
+        ValorIpva = 4;
     }
 
 }
